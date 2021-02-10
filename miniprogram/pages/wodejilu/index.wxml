@@ -1,0 +1,15 @@
+<!--miniprogram/pages/wodejilu/index.wxml-->
+<wxs module="filters" src="../../components/toFixed.wxs"></wxs>
+<view class="box" wx:for="{{list}}" wx:for-item="item" wx:for-index="index" wx:key="key" bindtap='bofang' data-hi="{{item}}">
+<view class="image">
+<view class="tag">{{item.vod_area}}</view>
+<image wx:if="{{item.vod_pic}}" src="{{item.vod_pic}}" lazy-load="true"></image>
+<view class="bottom">{{item.vod_class}}</view>
+</view>
+<view class="txt">
+<view>{{item.vod_name}}</view>
+<view wx:if="{{item.vod_director}}">导演：{{item.vod_director}}</view>
+<view wx:if="{{item.vod_actor}}">主演：{{item.vod_actor}}</view>
+<view wx:if="{{item.time}}">{{item.radioindex.name}}{{filters.toFix(item.time)}}</view>
+</view>
+</view>

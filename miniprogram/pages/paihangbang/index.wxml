@@ -1,0 +1,27 @@
+<!--miniprogram/pages/paihangbang/index.wxml-->
+<wxs module="image" src='../../images/image.wxs'></wxs>
+<view class="naver">
+<view bindtap="liebiao" data-order="vod_time desc" data-r="T" class="{{order=='vod_time desc'&&r=='T'?'on':''}}">TS抢先版</view>
+<view bindtap="liebiao" data-order="vod_hits_day desc" data-r="" class="{{order=='vod_hits_day desc'?'on':''}}">今日热播</view>
+<view bindtap="liebiao" data-order="vod_hits_week desc" data-r=""  class="{{order=='vod_hits_week desc'?'on':''}}">本周热映</view>
+<view bindtap="liebiao" data-order="vod_time desc" data-r="" class="{{order=='vod_time desc'&&!r?'on':''}}">最新更新</view>
+</view>
+
+<view class="top"></view>
+
+<view class="ts" wx:if="{{r=='T'}}">
+<view>注：TS/TC版一般为院线正在上映影片,画面质量比较模糊,可能会影响到您的观影体验。支持正版,请在影院购票观看或者等待几天,我们会第一时间更新高清片源。</view>
+</view>
+
+<view class="box" wx:for="{{list}}" wx:for-item="item" wx:for-index="index" wx:key="key" bindtap='bofang' data-hi="{{item}}">
+<view class="image">
+<view class="tag">{{index+1}}</view>
+<image wx:if="{{image.toFix(item.vod_pic)}}" src="{{image.toFix(item.vod_pic)}}" lazy-load="true"></image>
+<view class="bottom">{{item.vod_remarks}}</view>
+</view>
+<view class="txt">
+<view>{{item.vod_name}}</view>
+<view wx:if="{{item.vod_director}}">导演：{{item.vod_director}}</view>
+<view wx:if="{{item.vod_actor}}">主演：{{item.vod_actor}}</view>
+</view>
+</view>

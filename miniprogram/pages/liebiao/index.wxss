@@ -1,0 +1,19 @@
+/* miniprogram/pages/liebiao/index.wxss */
+
+.box{ background:#fff; padding:10px 1vw 10px 4vw; margin-top:10px;}
+.box .h1{ font-weight:bold;color: dimgray; border-left:5px solid #329fff; padding:0px 5px}
+.box .h1 text{ float:right; color:silver; font-size: small; font-weight: normal}
+
+.list{ padding:10px 2vw 0px 0px;float:left;background:#fff;}
+.list .image{width:29.5vw;height:42vw; position: relative;}
+.list .image image{ width:29.5vw;height:42vw}
+.list .image .bottom{ position: absolute;bottom:0px;background: rgba(0, 0, 0, 0.7);text-align: center; color:#fff;width:29.5vw; padding: 3px 0px; font-size:x-small;overflow: hidden;text-overflow:ellipsis;white-space: nowrap; }
+.list .image .tag{ position: absolute;top:5px; background:#329fff; font-size: x-small; padding:2px 5px;color:#fff;}
+.list .txt{text-align: center;color: dimgray; font-size: small;overflow: hidden;text-overflow:ellipsis;white-space: nowrap; width:29vw; margin-top:5px}
+
+.nav{ font-size:small;color: silver; background:#fff; padding:7px 1vw 7px 3vw;display:box;display: -webkit-box;box-sizing: border-box; -webkit-box-pack: left; -webkit-box-align:center;border-bottom:1px #F6F6F6 solid;}
+.nav view:first-child{ padding:0px 5px}
+.nav .slide-box {box-flex:1;-webkit-box-flex:1;box-sizing:border-box; margin-left:5px;color: dimgray; white-space: nowrap; display: flex ;overflow: scroll;}
+.nav .slide-box text{ margin-right:5px; padding:0px 5px}
+.nav:last-child{ border-bottom: none}
+.nav .on{ background:#329fff; color:#FFFFFF;border-radius:3px;}

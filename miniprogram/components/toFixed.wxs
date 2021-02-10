@@ -1,0 +1,11 @@
+var filters = {
+  toFix: function (value) {
+    if (value < 60) { return "观看不足1分钟" }
+    if (value >= 60 && value < 3600) { return "已看"+parseInt(value/60)+"分钟" }
+    if (value > 3600) { return "已看" +parseInt(value / 3600) + "小时" + parseInt((value % 3600) / 60) + "分钟" }
+  }
+}
+
+module.exports = {
+  toFix: filters.toFix
+}

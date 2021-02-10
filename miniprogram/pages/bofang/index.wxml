@@ -1,0 +1,63 @@
+<!--miniprogram/pages/bofang/index.wxml-->
+<wxs module="image" src='../../images/image.wxs'></wxs>
+<!-- wx:if="{{open==true}}" -->
+<video id="video" src="{{radioindex.url}}" show-mute-btn="ture" title="{{video.vod_name}} {{radioindex.name}}" poster="{{video.vod_pic}}" class="video" bindtimeupdate="bindtimeupdate" bindprogress="bindprogress" binderror="binderror" bindplay="bindplay" show-casting-button="ture" enable-play-gesture="ture" bindloadedmetadata="bindloadedmetadata" bindcontrolstoggle="bindcontrolstoggle" bindfullscreenchange="bindfullscreenchange" enable-auto-rotation="ture" show-screen-lock-button="ture">
+  <cover-view class="cover" wx:if="{{ showSpeed && fullScreen }}">
+    <cover-view class="speed" catchtap="speedHandler">倍数X{{ speed }}</cover-view>
+  </cover-view>
+</video>
+
+<view class="video" wx:if="{{!open}}">
+<image src="{{video.vod_pic}}" mode="aspectFit"></image>
+</view>
+<view class="video2"></view>
+
+<view class="name">
+<view class="v1">
+<view>{{video.vod_name}} {{video.vod_sub}}</view>
+<view><text wx:if="{{hits.hits}}">热度：{{hits.hits}}</text>
+<text wx:if="{{video.type}}">{{video.type.type_name}}</text>
+<text wx:if="{{video.type_name}}">{{video.type_name}}</text>
+<text wx:if="{{video.vod_year}}">{{video.vod_year}}</text>
+<text wx:if="{{video.vod_area}}">{{video.vod_area}}</text></view>
+</view>
+<view class="v2" bindtap='jianjie' data-hi="{{jianjie==false?true:false}}">简介<text class="{{jianjie==false?'arrow-bottom':'arrow-top'}}"></text></view>
+</view>
+
+<view class="back" wx:if="{{jianjie}}"><view class="cont">
+<view wx:if="{{video.vod_director}}">导演：{{video.vod_director}}</view>
+<view wx:if="{{video.vod_actor}}">主演：{{video.vod_actor}}</view>
+<view wx:if="{{video.vod_content}}">简介：{{video.vod_content}}</view>
+</view></view>
+
+<view class="nav">
+<button size="mini" bindtap='shoucang' wx:if="{{shoucangpx>=0}}" ><image src="/images/jrgx.png"></image>已收藏</button>
+<button size="mini" bindtap='shoucang' wx:else><image src="/images/jrgx.png"></image>收藏</button>
+<button open-type="share" size="mini"><image src="/images/fenxiang.png"></image>分享</button>
+</view>
+<view style='display:flex; justify-content:center; align-items:center;'>
+</view>
+<view class="length">
+<view class="h1">选集<text>共{{vod_play_url.length}}个视频</text></view>
+<view class="list">
+<radio-group bindchange="radioCheckedChange" name="tc" class="list"> 
+<block wx:for="{{vod_play_url}}" wx:for-item="item" wx:for-index="index" wx:key="key">
+<label>
+<view class="{{radioindex.url==item.url?'active':''}}">{{item.name}}<radio  hidden="true" value='{{index}}'></radio></view>
+</label>
+</block>
+</radio-group>
+
+</view>
+</view>
+
+
+
+<cover-view class="cover-view"  wx:if="{{fenxiang}}">
+
+<cover-view class="ad">
+<cover-image src="{{video.vod_pic}}" class="pic"></cover-image>
+<button open-type="share" type="primary" size="default">分享电影，继续播放</button>
+</cover-view>
+
+</cover-view>

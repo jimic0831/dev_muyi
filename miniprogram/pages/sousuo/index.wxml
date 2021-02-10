@@ -1,0 +1,27 @@
+<!--miniprogram/pages/sousuo/index.wxml-->
+<wxs module="image" src='../../images/image.wxs'></wxs>
+<form bindsubmit="formSubmit" bindreset="formReset">
+<view class="search">
+<input class="myButton" placeholder="请输入影片名称或演员名称" type="txt" name="search" id="search" value="{{wd}}" />
+<button  form-type="submit" size="mini" class='btn1'>搜索</button>
+</view>
+</form>
+<view class="loading"></view>
+<view wx:if="{{list.length<=0}}" class="list" wx:for="{{douban}}" wx:for-item="item" wx:for-index="index" wx:key="key" bindtap='submit' data-hi="{{item.title}}">
+<image wx:if="{{index<3}}" src="{{item.cover}}" lazy-load="true" mode="aspectFill" webp></image>
+<view class="num" wx:else>{{index+1}}</view>
+<view class="name">{{item.title}}</view><view class="douban">{{item.rate}}</view>
+</view>
+<view class="box" wx:for="{{list}}" wx:for-item="item" wx:for-index="index" wx:key="key" bindtap='bofang' data-hi="{{item}}">
+<view class="image">
+<view class="tag">{{item.vod_area}}</view>
+<image wx:if="{{image.toFix(item.vod_pic)}}" src="{{image.toFix(item.vod_pic)}}" lazy-load="true"></image>
+<view class="bottom">{{item.vod_remarks}}</view>
+</view>
+<view class="txt">
+<view>{{item.vod_name}}</view>
+<view wx:if="{{item.vod_director}}">导演：{{item.vod_director}}</view>
+<view wx:if="{{item.vod_actor}}">主演：{{item.vod_actor}}</view>
+</view>
+</view>
+

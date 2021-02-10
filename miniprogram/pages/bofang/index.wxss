@@ -1,0 +1,62 @@
+/* miniprogram/pages/bofang/index.wxss */
+page{ padding-bottom:20px}
+
+.video{ width:100vw; height:57vw;text-align: center; background:#000000;position:fixed;top:0;left:0;z-index:10;}
+.video image{ height:57vw;}
+.video2{width:100vw; height:57vw;}
+.video .cover {
+  position:absolute;
+  width: 90rpx;
+  height: 30rpx;
+  color:rgb(210, 210, 210);
+  font-size: 25rpx;
+  text-shadow: dimgrey 0 0 2rpx;
+  margin-top: 35rpx;
+  right: 90rpx
+}
+
+.name{background:#fff; padding:7px 1vw 7px 4vw; display: box;display: -webkit-box;box-sizing: border-box; -webkit-box-pack: center; -webkit-box-align:center;}
+.name .v1{box-flex:1;-webkit-box-flex:1;box-sizing:border-box; text-align:left;color: dimgray;}
+.name .v1 text{ font-size:small;color:silver; border-right:1px silver solid; padding-right:5px; margin-right:5px}
+.name .v1 text:last-child{padding-right:0px; margin-right:0px;border-right:none;}
+.name .v2{ font-size:small;color:silver;}
+.arrow-bottom {float:right;width:7px;height:7px;border-bottom: 2px solid silver;border-right: 2px solid silver;transform: rotate(45deg);margin:2px 7px;}
+.arrow-top {float:right;width:7px;height:7px;border-top: 2px solid silver;border-left: 2px solid silver;transform: rotate(45deg);margin:7px 7px 0px 7px;}
+
+.back{background:#fff;padding:0px 4vw 7px 4vw;}
+.cont{font-size:small;color: gray;text-indent:-3em;margin-left:3em;}
+.cont view{ margin-bottom:3px}
+
+.length{background:#fff; padding:10px 1vw 10px 4vw; margin-top:10px;}
+.length .h1{ font-weight:bold;color: dimgray; border-left:5px solid rgb(192, 192, 192); padding:0px 5px}
+.length .h1 text{ float:right; color:silver; font-size: small; font-weight: normal}
+.length .list{ max-height:none;overflow:auto;}
+.length .list view{ float:left;padding:5px 10px;font-size:small; border:1px silver solid; margin:10px 12px 0 0px;color: dimgray;border-radius:3px;}
+.length .list view.active{ border:1px rgb(0, 0, 0) solid; color:#fff;background: rgb(0, 0, 0)}
+
+.box{overflow:hidden; background:#fff; padding:10px 1vw 10px 4vw; margin-top:10px}
+.box .h1{ font-weight:bold;color: dimgray; border-left:5px solid seagreen; padding:0px 5px}
+.box .h1 text{ float:right; color:silver; font-size: small; font-weight: normal}
+.box .list{ padding:10px 2vw 0px 0px;float:left;}
+.box .list .image{width:29.5vw;height:42vw; position: relative;}
+.box .list .image image{ width:29.5vw;height:42vw}
+.box .list .image .bottom{ position: absolute;bottom:0px;background: rgba(0, 0, 0, 0.7);text-align: center; color:#fff;width:29.5vw; padding: 3px 0px; font-size: small;overflow: hidden;text-overflow:ellipsis;white-space: nowrap; }
+.box .list .image .tag{ position: absolute;top:5px; background:rgba(4, 145, 39, 0.7); font-size: x-small; padding:2px 5px;color:#fff;}
+.box .list .txt{text-align: center;color: dimgray; font-size: small;overflow: hidden;text-overflow:ellipsis;white-space: nowrap; width:29vw; margin-top:5px}
+
+.isIPX {padding-bottom:70rpx !important;}
+.button{position:fixed;right:0;left:0;bottom:0;z-index:1;display: box;display: -webkit-box;box-sizing: border-box; -webkit-box-pack:center; -webkit-box-align:center; text-align:center; padding:5px 20px 20px 20px;}
+.button button{border-radius:30px; width:100%; background:orangered}
+
+.nav{background:#fff;display:-webkit-box;display:-webkit-flex;display:flex;align-items:center;-webkit-box-pack:center;-webkit-box-align:center; padding:0px 10px 10px 10px;font-size: 14px;}
+.nav view{flex:1; text-align:center;border:1px silver solid;border-radius:7px; margin:0px 5px; padding:5px 0px 6px 0px}
+.nav button{flex:1; text-align:center;border:1px silver solid;border-radius:7px; margin:0px 5px;font-size: 14px}
+.nav image{height:16px; width:16px;vertical-align: text-bottom; margin-right:3px;}
+
+.cover-view{ width:100vw; height:100vh; background:rgba(0, 0, 0, 0.5);position:fixed;top:0;left:0;z-index:999;display:-webkit-box;display:-webkit-flex;display:flex;align-items:center;-webkit-box-pack:center;-webkit-box-align:center;}
+.cover-view .ad{flex:1; text-align:center;}
+.cover-view .pic{width:29.5vw;height:42vw;margin:0px auto 15px auto;border-radius:7px;}
+.cover-view button{ background: red;border-radius:40px;}
+
+.ts{padding:0px 15px 10px 15px; background:#FFF;color: darkgray; font-size: small}
+.ts view{ background:#F6F6F6; padding:5px 7px;border-radius:4px;}

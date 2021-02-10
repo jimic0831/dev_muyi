@@ -1,0 +1,11 @@
+var filters = {
+  toFix: function (value) {
+    if (value.substring(0, 6) == 'upload') { return 'https://www.muyi.cf/' + value }
+    if (value.substring(0, 3) == 'mac') { return value.replace('mac', 'http') }
+    else { return value}
+  }
+}
+
+module.exports = {
+  toFix: filters.toFix
+}

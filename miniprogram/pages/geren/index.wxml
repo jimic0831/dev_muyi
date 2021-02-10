@@ -1,0 +1,37 @@
+<!--miniprogram/pages/geren/index.wxml-->
+<view class="user" wx:if="{{hasLogin}}">
+<view class="pic"><open-data type="userAvatarUrl"></open-data></view>
+<view class="name">
+<view class=""><open-data type="userNickName" lang="zh_CN"></open-data></view>
+<view class="rank"><open-data type="userGender" lang="zh_CN"></open-data></view>
+</view>
+</view>
+<button wx:if="{{!hasLogin}}" type="primary" open-type="getUserInfo" bindgetuserinfo="getuserinfo">授权登录</button>
+<view wx:if="{{!canIUse}}">请升级微信版本</view>
+<view class="box">
+<view class="h1" bindtap="wodejilu">观看记录<text>更多>></text></view>
+<view class="list" wx:for="{{jilu}}" wx:for-item="item" wx:for-index="index" wx:key="key" bindtap="bofang" data-hi="{{item}}" wx:if="{{index<3}}">
+<view class="image">
+<view class="tag">{{item.vod_area}}</view>
+<image src="{{item.vod_pic}}" lazy-load="true"></image>
+<view class="bottom" wx:if="{{!item.radioindex.name}}">未观看</view>
+<view class="bottom" wx:else>观看至{{item.radioindex.name}}</view>
+</view>
+<view class="txt">{{item.vod_name}}</view>
+</view>
+</view>
+
+<view class="box">
+<view class="h1" bindtap="wodeshoucang">我的收藏<text>更多>></text></view>
+<view class="list" wx:for="{{shoucang}}" wx:for-item="item" wx:for-index="index" wx:key="key" bindtap="bofang" data-hi="{{item}}" wx:if="{{index<3}}">
+<view class="image">
+<view class="tag">{{item.vod_area}}</view>
+<image src="{{item.vod_pic}}" lazy-load="true"></image>
+<view class="bottom">{{item.vod_class}}</view>
+</view>
+<view class="txt">{{item.vod_name}}</view>
+</view>
+</view>
+
+<view class="banben">V2.0.1</view>
+<navigator class="banben" url="../mianzeshengming/index">免责声明</navigator>

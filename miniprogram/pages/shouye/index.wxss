@@ -1,0 +1,58 @@
+/* miniprogram/pages/shouye/index.wxss */
+.hidden{overflow:hidden;position:relative;z-index:-1;height:44px; margin-top:36px}
+
+.fixed{position:fixed;top:0;left:0;align-items:center; width:100%;z-index:999;}
+.bar{padding:0px 16px;height:44px;overflow:hidden;background:#329fff;
+  display:-webkit-box;display:-webkit-flex;display:flex;align-items:center;-webkit-box-pack:center;-webkit-box-align:center;}
+.android{height:48px;}
+.bar .logo{
+  width:190rpx;
+  font-family:"微软雅黑","黑体","宋体";
+  color: #fafafa;
+  letter-spacing: 0;
+  text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 3px 0px #777, 0px 4px 0px #666, 0px 5px 0px #555, 0px 6px 0px #444, 0px 7px 0px #333, 0px 8px 7px #001135;}
+.bar .logo image{height:44px; width:90px;}
+.bar .search{padding:4px 7px; background: rgba(255, 255, 255, 0.5); color:#fff;border-radius:20px;flex:1;display:flex;align-items:center;overflow:hidden;text-overflow:ellipsis;white-space: nowrap; font-size: small}
+
+.current{padding:0px 10px; background:#fff;display:-webkit-box;display:-webkit-flex;display:flex;align-items:center;-webkit-box-pack:center;-webkit-box-align:center; height:36px;}
+.current view{flex:1; text-align:center;border-bottom:3px solid #FFF}
+.current view.on{ font-size: large; font-weight: bolder; color:#329fff;border-bottom:3px solid #329fff}
+.current navigator{flex:none; color:#329fff;font-size:smaller; margin-left:10px}
+.current navigator image{height:18px; width:18px;vertical-align: text-bottom; margin-right:3px;}
+
+.loading{position:absolute;bottom:5px; text-align:center; width:100%;font-size: small}
+.loading image{height:30px; width:30px;vertical-align: text-bottom;}
+
+.index{width:100%;}
+.index swiper-item{overflow: auto;}
+
+.ad{width:100vw; height:40vw}
+.ad image{ width:100vw; height:40vw}
+.ad swiper-item view{ position: absolute;bottom:0px;background: linear-gradient(rgba(0, 0, 0, 0),rgba(0, 0, 0,0.9)) ;text-align: center; color:#fff;width:100vw; padding:5px 0px}
+
+.ad .wx-swiper-dots.wx-swiper-dots-horizontal{margin-bottom:5vw;}
+.ad .wx-swiper-dot{width:28rpx;display: inline-flex;height:8rpx;justify-content:space-between;}
+.ad .wx-swiper-dot::before{content: '';flex-grow: 1; background: rgba(223,223,223,.5);border-radius: 4rpx}
+.ad .wx-swiper-dot-active::before{background:#329fff;}
+
+
+.nav{ font-size:small;color: silver; background:#fff; padding:7px 1vw 7px 3vw;display:box;display: -webkit-box;box-sizing: border-box; -webkit-box-pack: left; -webkit-box-align:center;border-bottom:1px #F6F6F6 solid;}
+.nav view:first-child{ padding:0px 5px}
+.nav .slide-box {box-flex:1;-webkit-box-flex:1;box-sizing:border-box; margin-left:5px;color: dimgray; white-space: nowrap; display: flex ;overflow: scroll;}
+.nav .slide-box text{ margin-right:5px; padding:0px 5px}
+.nav:last-child{ border-bottom: none}
+.nav .on{ background:#329fff; color:#FFFFFF;border-radius:3px;}
+
+
+.scroll{overflow: auto;}
+.box{overflow:hidden; background:#fff; padding:10px 1vw 10px 4vw; margin-bottom:15px}
+.box .h1{ font-weight:bold;color: dimgray; border-left:5px solid #329fff; padding:0px 5px}
+.box .h1 text{ float:right; color:silver; font-size: small; font-weight: normal}
+.list{ padding:10px 2vw 0px 0px;float:left;}
+.list .image{width:29.5vw;height:42vw; position: relative;}
+.list .image image{ width:29.5vw;height:42vw}
+.list .image .bottom{ position: absolute;bottom:0px;background: rgba(0, 0, 0, 0.7);text-align: center; color:#fff;width:29.5vw; padding: 3px 0px; font-size: small;overflow: hidden;text-overflow:ellipsis;white-space: nowrap; }
+.list .image .tag{ position: absolute;top:5px; background:#329fff; font-size: x-small; padding:2px 5px;color:#fff;}
+.list .txt{text-align: center;color: dimgray; font-size: small;overflow: hidden;text-overflow:ellipsis;white-space: nowrap; width:29vw; margin-top:5px}
+
+.notice{ background:#FFF;padding:5px 15px 0px 15px; text-align: center; color: red;font-size: small}

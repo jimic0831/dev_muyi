@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/shouye/index",
+    "pages/geren/index",
+    "pages/bofang/index",
+    "pages/wodeshoucang/index",
+    "pages/wodejilu/index",
+    "pages/sousuo/index"
+  ],
+"tabBar": {
+  "color": "#7f8389",
+  "selectedColor": "#329fff",
+  "backgroundColor": "#f7f7fa",
+  "position": "bottom",
+  "list": [
+    {
+      "pagePath": "pages/shouye/index",
+      "selectedIconPath": "images/shouye.png",
+      "iconPath": "images/shouye.png",
+      "text": "首页"
+    },
+    {
+      "pagePath": "pages/geren/index",
+      "selectedIconPath": "images/wode.png",
+      "iconPath": "images/wode.png",
+      "text": "我的"
+    }
+  ],
+    "borderStyle": "white"
+    },
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "木易影评",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

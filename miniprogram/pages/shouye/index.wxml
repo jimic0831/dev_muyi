@@ -1,0 +1,272 @@
+<!--miniprogram/pages/shouye/index.wxml-->
+<wxs module="image" src='../../images/image.wxs'></wxs>
+
+<view style="padding-top:{{statusBarHeight}}px;" class="hidden {{ios ? 'ios' : 'android'}}">
+
+<view class="loading"><image src="/images/loading.gif"></image></view>
+</view>
+
+
+
+<view class="fixed">
+<view class="bar {{ios ? 'ios' : 'android'}}" style="padding-top:{{statusBarHeight}}px;">
+<view class="logo">木易影评</view>
+<view class="search" bindtap="sousuo"><icon type="search" size="20" color="white"/>快来搜我吧~</view>
+<view class="logo"></view>
+</view>
+<view class="current">
+<view class="{{current==0?'on':''}}" bindtap="current" data-hi="0">热播</view>
+
+<view class="{{current==item.type_id?'on':''}}" bindtap="current" data-hi="{{item.type_id}}" wx:for="{{index.fenlei}}" wx:for-item="item" wx:for-index="index" wx:key="key">{{item.type_name}}</view>
+
+<!-- <navigator url="../paihangbang/index" wx:if="{{index.weixin}}"><image src="/images/ts.png"></image>抢先</navigator> -->
+</view>
+
+
+</view>
+
+
+<swiper bindchange="swipercurrent" class="index" current="{{current}}" style="height:{{swiper}}px">
+<!--热播开始-->
+<swiper-item item-id="rb">
+<!--热播幻灯片开始-->
+<swiper autoplay indicator-dots class="ad">
+<swiper-item  wx:for="{{index.guanggao}}" wx:for-item="item" wx:for-index="index" wx:key="key">
+<view>{{item.vod_name}} {{item.vod_remarks}}</view>
+<image src="{{image.toFix(item.vod_pic_slide)}}" mode="aspectFill" lazy-load webp  bindtap="bofang" data-hi="{{item}}"></image>
+
+</swiper-item>
+</swiper>
+<!----热播幻灯片结束---->
+<view class="box">
+<view class="h1" bindtap="current" data-hi="1">热播电影<text>更多>></text></view>
+<view class="list" wx:for="{{index.rebodianying}}" wx:for-item="item" wx:for-index="index" wx:key="key" bindtap="bofang" data-hi="{{item}}">
+<view class="image">
+<view class="tag">{{item.vod_area}}</view>
+<image wx:if="{{image.toFix(item.vod_pic)}}" src="{{image.toFix(item.vod_pic)}}" lazy-load="true"></image>
+<view class="bottom">{{item.vod_remarks}}</view>
+</view>
+<view class="txt">{{item.vod_name}}</view>
+</view>
+</view>
+<view class="box">
+<view class="h1" bindtap="current" data-hi="2">热播电视剧<text>更多>></text></view>
+<view class="list" wx:for="{{index.rebodianshiju}}" wx:for-item="item" wx:for-index="index" wx:key="key" bindtap="bofang" data-hi="{{item}}">
+<view class="image">
+<view class="tag">{{item.vod_area}}</view>
+<image wx:if="{{image.toFix(item.vod_pic)}}" src="{{image.toFix(item.vod_pic)}}" lazy-load="true"></image>
+<view class="bottom">{{item.vod_remarks}}</view>
+</view>
+<view class="txt">{{item.vod_name}}</view>
+</view>
+</view>
+<view class="box">
+<view class="h1" bindtap="current" data-hi="3">热播综艺<text>更多>></text></view>
+<view class="list" wx:for="{{index.rebozongyi}}" wx:for-item="item" wx:for-index="index" wx:key="key" bindtap="bofang" data-hi="{{item}}">
+<view class="image">
+<view class="tag">{{item.vod_area}}</view>
+<image wx:if="{{image.toFix(item.vod_pic)}}" src="{{image.toFix(item.vod_pic)}}" lazy-load="true"></image>
+<view class="bottom">{{item.vod_remarks}}</view>
+</view>
+<view class="txt">{{item.vod_name}}</view>
+</view>
+</view>
+<view class="box">
+<view class="h1" bindtap="current" data-hi="4">热播动漫<text>更多>></text></view>
+<view class="list" wx:for="{{index.rebodongman}}" wx:for-item="item" wx:for-index="index" wx:key="key" bindtap="bofang" data-hi="{{item}}">
+<view class="image">
+<view class="tag">{{item.vod_area}}</view>
+<image wx:if="{{image.toFix(item.vod_pic)}}" src="{{image.toFix(item.vod_pic)}}" lazy-load="true"></image>
+<view class="bottom">{{item.vod_remarks}}</view>
+</view>
+<view class="txt">{{item.vod_name}}</view>
+</view>
+</view>
+</swiper-item>
+<!--热播结束/电影开始-->
+<swiper-item item-id="dy">
+
+<view class="nav">  <view  bindtap="liebiao" data-p="1">全部分类</view>
+<scroll-view class="slide-box" scroll-x="true">
+<text wx:for="{{index.fenleixiaji}}" wx:for-item="item" wx:key="key" wx:if="{{item.type_pid==1}}" bindtap="liebiao" data-t="{{item.type_id}}" data-p="1">{{item.type_name}}</text>
+</scroll-view>
+</view>
+
+<view class="nav">  <view bindtap="liebiao" data-p="1">全部时间</view>
+<scroll-view class="slide-box" scroll-x scroll-anchoring>
+<text wx:for="{{index.fenlei[0].type_extend.year}}" wx:for-item="item"  wx:key="key" bindtap="liebiao" data-p="1" data-y="{{item}}">{{item}}</text>
+<text bindtap="liebiao" data-p="1" data-z="{{index.fenlei[0].type_extend.year[index.fenlei[0].type_extend.year.length-1]}}">更早</text>
+</scroll-view> </view>
+
+<view class="nav">  <view bindtap="liebiao" data-p="1">全部地区</view>
+<scroll-view class="slide-box" scroll-x scroll-anchoring>
+<text wx:for="{{index.fenlei[0].type_extend.area}}" wx:for-item="item"  wx:key="key" bindtap="liebiao" data-p="1" data-a="{{item}}">{{item}}</text>
+</scroll-view> </view>
+
+
+<view class="box">
+<view class="h1" bindtap="liebiao" data-p="1" data-order="vod_hits_day desc">热播电影<text>更多>></text></view>
+<view class="list" wx:for="{{index.dianyinrebo}}" wx:for-item="item" wx:for-index="index" wx:key="key" bindtap="bofang" data-hi="{{item}}">
+<view class="image">
+<view class="tag">{{item.vod_area}}</view>
+<image wx:if="{{image.toFix(item.vod_pic)}}" src="{{image.toFix(item.vod_pic)}}" lazy-load="true"></image>
+<view class="bottom">{{item.vod_remarks}}</view>
+</view>
+<view class="txt">{{item.vod_name}}</view>
+</view>
+</view>
+
+<view class="box" wx:for="{{index.fenleixiaji}}" wx:for-item="item1" wx:key="key1" wx:if="{{item1.type_pid==1}}">
+<view class="h1" bindtap="liebiao" data-p="1" data-order="vod_hits_day desc" data-t="{{item1.type_id}}">{{item1.type_name}}<text>更多>></text></view>
+<view class="list" wx:for="{{item1.rebo}}" wx:for-item="item" wx:for-index="index" wx:key="key" bindtap="bofang" data-hi="{{item}}">
+<view class="image">
+<view class="tag">{{item.vod_area}}</view>
+<image wx:if="{{image.toFix(item.vod_pic)}}" src="{{image.toFix(item.vod_pic)}}" lazy-load="true"></image>
+<view class="bottom">{{item.vod_remarks}}</view>
+</view>
+<view class="txt">{{item.vod_name}}</view>
+</view>
+</view>
+</swiper-item>
+<!--电影结束/电视剧开始-->
+<swiper-item item-id="ds">
+<view class="nav">  <view bindtap="liebiao" data-p="2">全部分类</view>
+<scroll-view class="slide-box" scroll-x="true">
+<text wx:for="{{index.fenleixiaji}}" wx:for-item="item" wx:key="key" wx:if="{{item.type_pid==2}}" bindtap="liebiao" data-t="{{item.type_id}}" data-p="2">{{item.type_name}}</text>
+</scroll-view>
+</view>
+
+<view class="nav">  <view bindtap="liebiao" data-p="2">全部时间</view>
+<scroll-view class="slide-box" scroll-x scroll-anchoring>
+<text wx:for="{{index.fenlei[1].type_extend.year}}" wx:for-item="item"  wx:key="key" bindtap="liebiao" data-p="2" data-y="{{item}}">{{item}}</text>
+<text bindtap="liebiao" data-p="2" data-z="{{index.fenlei[1].type_extend.year[index.fenlei[1].type_extend.year.length-1]}}">更早</text>
+</scroll-view> </view>
+
+<view class="nav">  <view bindtap="liebiao" data-p="2">全部进度</view>
+<scroll-view class="slide-box" scroll-x scroll-anchoring>
+<text bindtap="liebiao" data-p="2" data-r="全">完结</text>
+<text bindtap="liebiao" data-p="2" data-r="更新">热播剧</text>
+</scroll-view> </view>
+
+<view class="box">
+<view class="h1" bindtap="liebiao" data-p="2" data-order="vod_hits_day desc">热播电视剧<text>更多>></text></view>
+<view class="list" wx:for="{{index.dianshijurebo}}" wx:for-item="item" wx:for-index="index" wx:key="key" bindtap="bofang" data-hi="{{item}}">
+<view class="image">
+<view class="tag">{{item.vod_area}}</view>
+<image wx:if="{{image.toFix(item.vod_pic)}}" src="{{image.toFix(item.vod_pic)}}" lazy-load="true"></image>
+<view class="bottom">{{item.vod_remarks}}</view>
+</view>
+<view class="txt">{{item.vod_name}}</view>
+</view>
+</view>
+
+<view class="box" wx:for="{{index.fenleixiaji}}" wx:for-item="item1" wx:key="key1" wx:if="{{item1.type_pid==2}}">
+<view class="h1" bindtap="liebiao" data-p="2" data-order="vod_hits_day desc" data-t="{{item1.type_id}}">{{item1.type_name}}<text>更多>></text></view>
+<view class="list" wx:for="{{item1.rebo}}" wx:for-item="item" wx:for-index="index" wx:key="key" bindtap="bofang" data-hi="{{item}}">
+<view class="image">
+<view class="tag">{{item.vod_area}}</view>
+<image wx:if="{{image.toFix(item.vod_pic)}}" src="{{image.toFix(item.vod_pic)}}" lazy-load="true"></image>
+<view class="bottom">{{item.vod_remarks}}</view>
+</view>
+<view class="txt">{{item.vod_name}}</view>
+</view>
+</view>
+
+</swiper-item>
+<!--电视剧结束/综艺开始-->
+<swiper-item item-id="zy">
+<view class="nav">  <view bindtap="liebiao" data-t="3">全部地区</view>
+<scroll-view class="slide-box" scroll-x="true">
+<text wx:for="{{index.fenlei[2].type_extend.area}}" wx:for-item="item"  wx:key="key" bindtap="liebiao" data-t="3" data-a="{{item}}">{{item}}</text>
+</scroll-view>
+</view>
+
+<view class="nav">  <view bindtap="liebiao" data-t="3">全部时间</view>
+<scroll-view class="slide-box" scroll-x scroll-anchoring>
+<text wx:for="{{index.fenlei[2].type_extend.year}}" wx:for-item="item"  wx:key="key" bindtap="liebiao" data-t="3" data-y="{{item}}">{{item}}</text>
+<text bindtap="liebiao" data-t="3" data-z="{{index.fenlei[2].type_extend.year[index.fenlei[2].type_extend.year.length-1]}}">更早</text>
+</scroll-view> </view>
+
+<view class="nav">  <view bindtap="liebiao" data-t="3">综艺排行</view>
+<scroll-view class="slide-box" scroll-x scroll-anchoring>
+<text bindtap="liebiao" data-t="3" data-order="vod_time desc">最新更新</text>
+<text bindtap="liebiao" data-t="3" data-order="vod_hits_day desc">今日热播</text>
+<text bindtap="liebiao" data-t="3" data-order="vod_hits_week desc">本周热映</text>
+</scroll-view> </view>
+
+<view class="box">
+<view class="h1" bindtap="liebiao" data-t="3" data-order="vod_hits_day desc">今日热播<text>更多>></text></view>
+<view class="list" wx:for="{{index.zongyiremo}}" wx:for-item="item" wx:for-index="index" wx:key="key" bindtap="bofang" data-hi="{{item}}">
+<view class="image">
+<view class="tag">{{item.vod_area}}</view>
+<image wx:if="{{image.toFix(item.vod_pic)}}" src="{{image.toFix(item.vod_pic)}}" lazy-load="true"></image>
+<view class="bottom">{{item.vod_remarks}}</view>
+</view>
+<view class="txt">{{item.vod_name}}</view>
+</view>
+</view>
+
+
+<view class="box">
+<view class="h1" bindtap="liebiao" data-t="3" data-order="vod_time desc">最新上映<text>更多>></text></view>
+<view class="list" wx:for="{{index.zongyigengxin}}" wx:for-item="item" wx:for-index="index" wx:key="key" bindtap="bofang" data-hi="{{item}}">
+<view class="image">
+<view class="tag">{{item.vod_area}}</view>
+<image wx:if="{{image.toFix(item.vod_pic)}}" src="{{image.toFix(item.vod_pic)}}" lazy-load="true"></image>
+<view class="bottom">{{item.vod_remarks}}</view>
+</view>
+<view class="txt">{{item.vod_name}}</view>
+</view>
+</view>
+
+</swiper-item>
+
+<swiper-item item-id="dm">
+<view class="nav">  <view bindtap="liebiao" data-t="4">全部地区</view>
+<scroll-view class="slide-box" scroll-x="true">
+<text wx:for="{{index.fenlei[3].type_extend.area}}" wx:for-item="item"  wx:key="key" bindtap="liebiao" data-t="4" data-a="{{item}}">{{item}}</text>
+</scroll-view>
+</view>
+
+<view class="nav">  <view bindtap="liebiao" data-t="4">全部时间</view>
+<scroll-view class="slide-box" scroll-x scroll-anchoring>
+<text wx:for="{{index.fenlei[3].type_extend.year}}" wx:for-item="item"  wx:key="key" bindtap="liebiao" data-t="4" data-y="{{item}}">{{item}}</text>
+<text bindtap="liebiao" data-t="4" data-z="{{index.fenlei[3].type_extend.year[index.fenlei[3].type_extend.year.length-1]}}">更早</text>
+</scroll-view> </view>
+
+<view class="nav">  <view bindtap="liebiao" data-t="4">全部进度</view>
+<scroll-view class="slide-box" scroll-x scroll-anchoring>
+<text bindtap="liebiao" data-t="4" data-r="全">完结</text>
+<text bindtap="liebiao" data-t="4" data-r="更新">连载</text>
+<text bindtap="liebiao" data-t="4" data-nr="集">剧场版/电影</text>
+</scroll-view> </view>
+
+
+<view class="box">
+<view class="h1" bindtap="liebiao" data-t="4" data-order="vod_hits_day desc">今日热播<text>排行榜>></text></view>
+<view class="list" wx:for="{{index.dongmanremo}}" wx:for-item="item" wx:for-index="index" wx:key="key" bindtap="bofang" data-hi="{{item}}">
+<view class="image">
+<view class="tag">{{item.vod_area}}</view>
+<image wx:if="{{image.toFix(item.vod_pic)}}" src="{{image.toFix(item.vod_pic)}}" lazy-load="true"></image>
+<view class="bottom">{{item.vod_remarks}}</view>
+</view>
+<view class="txt">{{item.vod_name}}</view>
+</view>
+</view>
+
+
+<view class="box">
+<view class="h1" bindtap="liebiao" data-t="4" data-order="vod_time desc">最新上映<text>更多>></text></view>
+<view class="list" wx:for="{{index.dongmangengxin}}" wx:for-item="item" wx:for-index="index" wx:key="key" bindtap="bofang" data-hi="{{item}}">
+<view class="image">
+<view class="tag">{{item.vod_area}}</view>
+<image wx:if="{{image.toFix(item.vod_pic)}}" src="{{image.toFix(item.vod_pic)}}" lazy-load="true"></image>
+<view class="bottom">{{item.vod_remarks}}</view>
+</view>
+<view class="txt">{{item.vod_name}}</view>
+</view>
+</view>
+
+</swiper-item>
+
+</swiper>

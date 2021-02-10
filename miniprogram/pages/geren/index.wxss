@@ -1,0 +1,22 @@
+/* miniprogram/pages/geren/index.wxss */
+.user{display: box;display: -webkit-box;box-sizing: border-box; -webkit-box-pack:center; padding:20px; background:#FFF}
+.pic{box-flex:1;width:100rpx; height:100rpx;border-radius:50%; margin-right:20px;clip-path: circle(50rpx at center);}
+.name{box-flex:1;-webkit-box-flex:1;box-sizing:border-box;font-size:16px;color: slategray;margin-top:5px}
+.name .rank{font-size:14px; color: lightslategray;}
+.name .rank e{color:slategray}
+
+.box{overflow:hidden; background:#fff; padding:10px 1vw 10px 4vw; margin-top:15px}
+.box .h1{ font-weight:bold;color: dimgray; border-left:5px solid rgb(192, 192, 192); padding:0px 5px}
+.box .h1 text{ float:right; color:silver; font-size: small; font-weight: normal}
+.list{ padding:10px 2vw 0px 0px;float:left;}
+.list .image{width:29.5vw;height:42vw; position: relative;}
+.list .image image{ width:29.5vw;height:42vw}
+.list .image .bottom{ position: absolute;bottom:0px;background: rgba(0, 0, 0, 0.7);text-align: center; color:#fff;width:29.5vw; padding: 3px 0px; font-size: small;overflow: hidden;text-overflow:ellipsis;white-space: nowrap; }
+.list .image .tag{ position: absolute;top:5px; background:rgba(255, 0, 0, 0.7); font-size: x-small; padding:2px 5px;color:#fff;}
+.list .txt{text-align: center;color: dimgray; font-size: small;overflow: hidden;text-overflow:ellipsis;white-space: nowrap; width:29vw; margin-top:5px}
+
+.banben{ font-size: small; color:silver; text-align: center; margin-top: 20px}
+
+button{
+  margin-top: 15px;
+}
